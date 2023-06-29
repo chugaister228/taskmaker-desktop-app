@@ -1,0 +1,26 @@
+﻿<Window x:Class="CrylatoProjectDesktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CrylatoProjectDesktop" 
+        xmlns:views="clr-namespace:CrylatoProjectDesktop.Views"
+        xmlns:vms="clr-namespace:CrylatoProjectDesktop.ViewModels"
+        mc:Ignorable="d"
+        Title="Tasks controller" Height="500" Width="800">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="20 10" MaxWidth="1500">
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type vms:MakeTaskViewModel}">
+                <views:MakeTaskView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:TaskListingViewModel}">
+                <views:TaskListingView />
+            </DataTemplate>
+        </Grid.Resources>
+
+        <ContentControl Content="{Binding CurrentViewModel}" />
+
+    </Grid>
+    </ScrollViewer>
+</Window>
